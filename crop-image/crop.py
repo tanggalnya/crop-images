@@ -41,11 +41,9 @@ bottom = (height + new_height)/2
 
 # Crop the center of the image
 im = im.crop((left, top, right, bottom))
-im.show()
 
 # save file
 split_tup = os.path.splitext(file_name)
-print(split_tup)
 
 # extract the file name and extension
 file_name = split_tup[0]
