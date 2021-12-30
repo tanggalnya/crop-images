@@ -4,6 +4,8 @@ import os
 import sys, getopt
 from PIL import Image
 
+output_folder = './output/'
+
 # Crop excess width or height
 def crop(image, new_width, new_height):
     width, height = image.size
@@ -23,7 +25,8 @@ def save(image, file_name):
     file_name = split_tup[0]
     file_extension = split_tup[1]
     final_name = file_name + '_thumbnail' + file_extension
-    image.save(final_name)
+    destination = output_folder + final_name
+    image.save(destination)
 
 # Resize and crop image. Only process if mode of args given and exisiting image is same. I.e if args is potrait, only process potrait image
 def process(img, new_width, new_height):
