@@ -45,11 +45,11 @@ def process(img, new_width, new_height):
     vertical=image.size[0] < image.size[1] and new_width < new_height
 
     if horizontal:
-        image.thumbnail(size=(image.size[0], new_height), resample=Image.NEAREST)
+        image.thumbnail(size=(image.size[0], new_height), resample=Image.ANTIALIAS)
         image = crop(image, new_width, new_height)
         save(image, img)
     elif vertical:
-        image.thumbnail(size=(new_width, image.size[1]), resample=Image.NEAREST)
+        image.thumbnail(size=(new_width, image.size[1]), resample=Image.ANTIALIAS)
         image = crop(image, new_width, new_height)
         save(image, img)
     else:

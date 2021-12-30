@@ -1,2 +1,4 @@
 OUTPUT_FOLDER: './output/'
+
+# The image quality, on a scale from 1 (worst) to 95 (best). The default is 75. Values above 95 should be avoided; 100 completely disables the JPEG quantization stage."
 QUALITY: 95
