@@ -2,10 +2,19 @@
 
 import os
 import sys, getopt
+
+import yaml
 from PIL import Image
 
-OUTPUT_FOLDER = './output/'
-QUALITY = 100
+with open('config.yaml') as file:
+    try:
+        config = yaml.safe_load(file)
+    except yaml.YAMLError as exc:
+        print(exc)
+
+OUTPUT_FOLDER = config['OUTPUT_FOLDER']
+QUALITY = config['QUALITY']
+
 
 # Crop excess width or height
 def crop(image, new_width, new_height):

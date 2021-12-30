@@ -1,12 +1,14 @@
 # Crop
 
 ## Prerequire
-Use virtualenv and install dependencies needed
-```sh
-virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+1. Use virtualenv and install dependencies needed
+    ```sh
+    virtualenv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+
+1. Copy config_sample.yaml to config.yaml and update value respectively
 
 ## Usage
 It detected file mode from args width and height and only process image with same mode.
