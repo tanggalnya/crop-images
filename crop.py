@@ -88,7 +88,7 @@ def main():
 
     if len(path) > 0:
         # bulk
-        images = [file for file in os.listdir(path) if file.endswith(('jpeg', 'png', 'jpg'))]
+        images = [file for file in os.listdir(path) if file.endswith(('jpeg', 'png', 'jpg', 'JPEG', 'PNG', 'JPG'))]
         for img in images:
             process(img, new_width, new_height)
     elif len(file_name) > 0:
