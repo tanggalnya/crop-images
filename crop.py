@@ -4,7 +4,7 @@ import os
 import sys, getopt
 
 import yaml
-from PIL import Image
+from PIL import Image, ImageOps
 
 with open('config.yaml') as file:
     try:
@@ -41,6 +41,7 @@ def save(image, file_name):
 # Resize and crop image. Only process if mode of args given and exisiting image is same. I.e if args is potrait, only process potrait image
 def process(img, new_width, new_height):
     image = Image.open(img)
+    image = ImageOps.exif_transpose(image)
     horizontal=image.size[0] > image.size[1] and new_width > new_height
     vertical=image.size[0] < image.size[1] and new_width < new_height
 
