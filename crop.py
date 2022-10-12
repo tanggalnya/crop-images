@@ -39,8 +39,8 @@ def save(image, file_name):
     image.save(destination, quality=QUALITY)
 
 # Resize and crop image. Only process if mode of args given and exisiting image is same. I.e if args is potrait, only process potrait image
-def process(img, new_width, new_height):
-    image = Image.open(img)
+def process(path, img, new_width, new_height):
+    image = Image.open(path + img)
     image = ImageOps.exif_transpose(image)
     horizontal=image.size[0] > image.size[1] and new_width > new_height
     vertical=image.size[0] < image.size[1] and new_width < new_height
@@ -89,12 +89,13 @@ def main():
 
     if len(path) > 0:
         # bulk
+        PATH = path
         images = [file for file in os.listdir(path) if file.endswith(('jpeg', 'png', 'jpg', 'JPEG', 'PNG', 'JPG'))]
         for img in images:
-            process(img, new_width, new_height)
+            process(path + "/", img, new_width, new_height)
     elif len(file_name) > 0:
         # one file
-        process(file_name, new_width, new_height)
+        process(os.getcwd() + "/", file_name, new_width, new_height)
     else:
         print("Pass")
 
